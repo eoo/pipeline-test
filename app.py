@@ -15,8 +15,14 @@ socket.connect("tcp://localhost:5555")
 @app.route('/', methods=['GET', 'POST'])
 def index():
   if request.method == 'POST':
+
+    if 'print' in request.form:
+      message = "print"
+    if 'close' in request.form:
+      message = "close"  
+
     print("Sending message to console..")
-    socket.send_string("close")
+    socket.send_string(message)
 
     #  Get the reply.
     message = socket.recv()

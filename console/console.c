@@ -28,6 +28,11 @@ void * zmqserver(void * arg)
             stop = 0;
         }
 
+        if(strcmp(buffer, "print") == 0)
+        {   
+            printf("Printing Nothing\n");
+        }
+
     }
 
     zmq_close (responder);
